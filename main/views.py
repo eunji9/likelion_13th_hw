@@ -6,4 +6,4 @@ def mainpage(request):
     return render(request, 'main/mainpage.html')
 
 def freepage(request):
-    return render(request, 'free/freepage.html')
+    return render(request, 'main/freepage.html')
