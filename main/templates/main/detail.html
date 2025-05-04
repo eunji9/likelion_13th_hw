@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h3>{{post.title}}</h3>
+        난이도 : {{post.difficulty}}
+        세션 날짜 : {{post.pub_date}}
+        <hr/>
+        {% if post.image %}
+            <p><img src="{{ post.image.url }}" alt="사진" width="100px"></p>
+        {% endif %}
+        <p>{{post.content}}</p>
+        <a href="{% url 'main:edit' post.id %}">글 수정하기</a>
+        <a href="{% url 'main:delete' post.id %}">글 삭제하기</a>
+    <br>
+{% endblock %}

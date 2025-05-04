@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2 class="contents">🌸 중간고사 이후 🌸</h2>
+<h2 class="contents">🌸 세션 기록들 🌸</h2>
 <div class="contents"></div>
-<h2>🦁 모하고 놀아볼까 🦁</h2>
-<ul>
-    <h3>🎀 여행가기 🎀</h3>
-    <li>기차여행 가기</li>
-    <li>이리저리 많이 다니기!</li>
-    <li>매주 주말에 놀아보기😎</li>
-</ul>
-<ul>
-    <h3>🎀 멋사 🎀</h3>
-    <li>지난 세션들 복습하기</li>
-    <li>친바조 모여서 빙고판 채우며 놀러다니기😊</li>
-</ul>
+<div>
+    {% for post in posts %}
+    </div>
+        <hr/>
+        <h3>{{post.title}}</h3>
+        {{post.difficulty}} | {{post.pub_date}}<br>
+        {{post.content}}
+        {{post.summary}}
+        <a href="{% url 'main:detail' post.id %}">자세히 보기</a>
+        <br>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
