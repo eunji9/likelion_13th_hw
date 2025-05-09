@@ -3,46 +3,9 @@
 {% block content %}
 
 <img src="{%static 'images/blossom.jpg' %}" alt="flower" width="100px">
-<h2 class="contents">🌸 2주차 세션 정리 🌸</h2>
+<h2 class="contents">🌸 안녕하세용! 은지의 노트입니당😎 🌸</h2>
 <div class="contents"></div>
-<h2>🦁 2주차 Django 이야기 🦁</h2>
-<ul>
-    <h4>🎀 Template 🎀</h4>
-    <li>mainpage.html 페이지 파일 만들어서 첫 번째 main 화면을 구성한다</li>
-    <li>Views.py를 작성한다: 원하는 url을 mainpage가 보여지게 한다 
-    <ul>
-        <li>작성형식: def mainpage(request): return render(request, 'main/mainpage.html')</li>
-    </ul>
-    </li>
-    <li>urls.py를 작성한다: url에 해당하는 데이터를 연결하는 것</li>
-    <ul>
-        <li>main 앱에서 view 함수를 불러온다: from main import views</li>
-        <li>urlpatterns=[ ] 안에 경로 추가한다: path('', views.mainpage, name="mainpage")</li>
-    </ul>
-    
-</ul>
-<ul>
-    <h4>🎀 Template 🎀</h4>
-    <li>nav 부분에 페이지 이름 넣어 링크해야 링크가 걸림.</li>
-    <li>템프릿 변수도 사용 가능</li>
-    <li>반복문, 조건문도 사용 가능</li>
-</ul>
-<ul>
-    <h4>🎀 Template 상속과 nav bas 분리🎀</h4>
-    <li>project 폴더 내 templates 폴더 생성 후 그 안에 base.html 만들고 그 안에 반복되는 코드를 이동시킴</li>
-    <ul>
-        <li> block content 와 endblock 이용. 페이지들에는 그 위에  extends base.html 을 적어주기. 베이스파일은 따옴표 안에.</li>
-    </ul>
-    </li>
-    <li>project > settings.py에서 import os 하고 DIRS 뒤에 내용 추가</li>
-    <li>templates 폴더 내에 shared 폴더 생성 후 그 안에 _navbar.html 생성 후 base.html에 포함된 nav영역을 navbar.html로 옮기기. 분리했으니 base.html에 상속시켜야함.</li>    
-</ul>
-<ul>
-    <h4>🎀 Static 🎀</h4>
-    <li>project 폴더에 static 폴더 생성하고, 그 안에 css, images폴더 생성. css안에는 project.css 생성</li>
-    <li> load static 과 img src 이용하여 넣기</li>
-    <li>settings.py에서 경로 설정</li>
-    
-</ul>
+<h2>🦁 로그인 후, MyPage를 이용해보세요! 🦁</h2>
+
 
 {% endblock %}
