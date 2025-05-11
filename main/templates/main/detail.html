@@ -3,7 +3,7 @@
 {% block content %}
     <h3>{{post.title}}</h3>
         난이도 : {{post.difficulty}}
-        세션 날짜 : {{post.pub_date}}
+        | 세션 날짜 : {{post.pub_date}}
         <hr/>
         {% if post.image %}
             <p><img src="{{ post.image.url }}" alt="사진" width="100px"></p>

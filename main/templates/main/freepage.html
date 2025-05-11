@@ -1,19 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!-- 글 작성하기 -->
+<h2 class="contents">🌷새 글 작성🌷</h2>
+{% if user.is_authenticated %}
+    <a href="{% url 'users:new-post' %}">새로운 글 작성하기!</a> 
+{% else %}
+    <p>로그인하고 새 글을 작성해보세요!</p>
+{% endif %}
+
 <h2 class="contents">🌸 세션 기록들 🌸</h2>
 <div class="contents"></div>
 <div>
     {% for post in posts %}
-    </div>
         <hr/>
-        <h3>{{post.title}}</h3>
-        {{post.difficulty}} | {{post.pub_date}}<br>
-        {{post.content}}
-        {{post.summary}}
-        <a href="{% url 'main:detail' post.id %}">자세히 보기</a>
-        <br>
-    </div>
+        <div>
+            <h3><a href="{% url 'main:detail' post.id %}">{{post.title}}</a></h3>
+            작성자: {{post.author.username}} | 난이도 : {% if post.difficulty == 'easy' %}쉬움
+            {% elif post.difficulty == 'normal' %}보통
+            {% elif post.difficulty == 'hard' %}어려움
+            {% endif %} | {{post.pub_date}}<br>
+            {{post.content}}
+            {{post.summary}}
+            <br>
+        </div>
+    {% empty %}
+        <p>작성된 글이 없습니다. 가장 먼저 글을 작성해보세요!</p>
     {% endfor %}
 </div>
 

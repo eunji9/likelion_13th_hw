@@ -14,14 +14,13 @@
     {% for post in posts %}
     </div>
         <hr/>
-        <h3>{{post.title}}</h3>
+        <h3><a href="{% url 'users:detail' post.id %}">{{post.title}}</a></h3>
         난이도 : {% if post.difficulty == 'easy' %}쉬움
         {% elif post.difficulty == 'normal' %}보통
         {% elif post.difficulty == 'hard' %}어려움
         {% endif %} | {{post.pub_date}}<br>
         {{post.content}}
         {{post.summary}}
-        <a href="{% url 'users:detail' post.id %}">자세히 보기</a>
         <br>
     </div>
     {% empty %}

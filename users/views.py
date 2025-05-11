@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import Post
+from main.models import Post
 
 # Create your views here.
 
@@ -36,9 +37,8 @@ def create(request):
         new_post.pub_date = timezone.now()
         new_post.author = request.user  # 작성자는 로그인한 유저로 설정
         new_post.save()
-        return redirect('users:detail', new_post.id)
-    else:
-        return render(request, 'users/new-post.html')
+        return redirect('main:freepage')
+    return render(request, 'users/new-post.html')
 
 @login_required
 def edit(request, id):
