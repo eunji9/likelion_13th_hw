@@ -15,7 +15,7 @@
     {% for post in posts %}
         <hr/>
         <div>
-            <h3><a href="{% url 'main:detail' post.id %}">{{post.title}}</a></h3>
+            <h3><a href="{% url 'users:detail' post.id %}">{{post.title}}</a></h3>
             작성자: {{post.author.username}} | 난이도 : {% if post.difficulty == 'easy' %}쉬움
             {% elif post.difficulty == 'normal' %}보통
             {% elif post.difficulty == 'hard' %}어려움
