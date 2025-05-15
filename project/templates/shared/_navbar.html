@@ -3,6 +3,8 @@
     <a class="navbar-link" href="{% url 'main:mainpage' %}">13th_Silver's note</a>
     <!-- secondpage 링크 연결-->
     <a class="navbar-link" href="{% url 'main:freepage' %}">Free Page</a>
+    <a class="navbar-link" href="{% url 'main:tag-list' %}">Tag</a>
+
     <div class="nav-right">
         {% if user.is_authenticated %}
         <!--로그인 시 보이는 화면-->

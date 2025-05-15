@@ -3,9 +3,13 @@
 
 <!-- 글 작성하기 -->
 <h2 class="contents">🩵글 작성🩵</h2>
-{% if user.is_authenticated %}
-    <a href="{% url 'users:new-post' %}">새로운 글 작성하기!</a> 
-{% endif %}
+<div>
+    <div>
+        {% if user.is_authenticated %}
+        <a href="{% url 'main:new-post' %}">새로운 글 작성하기!</a> 
+        {% endif %}
+    </div>
+</div>
     
 <!-- 작성된 글 목록-->
 <h2 class="contents">💙내가 작성한 글💙</h2>
@@ -14,12 +18,11 @@
     {% for post in posts %}
     </div>
         <hr/>
-        <h3><a href="{% url 'users:detail' post.id %}">{{post.title}}</a></h3>
+        <h3><a href="{% url 'main:detail' post.id %}">{{post.title}}</a></h3>
         난이도 : {% if post.difficulty == 'easy' %}쉬움
         {% elif post.difficulty == 'normal' %}보통
         {% elif post.difficulty == 'hard' %}어려움
         {% endif %} | {{post.pub_date}}<br>
-        {{post.content}}
         {{post.summary}}
         <br>
     </div>
