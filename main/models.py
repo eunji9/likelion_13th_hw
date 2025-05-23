@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
 # Post 모델을 main앱에만 정의하고, writer 필드로 User와 관계를 설정
 class Tag(models.Model):
     name = models.CharField(max_length=30, null=False, blank=False)
@@ -17,6 +16,8 @@ class Post(models.Model):
     pub_date = models.DateField()
     image = models.ImageField(upload_to="post/", blank=True, null=True)
     tags = models.ManyToManyField(Tag, related_name='posts', blank=True)
+    like = models.ManyToManyField(User, related_name='likes', blank=True)
+    like_count = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.title

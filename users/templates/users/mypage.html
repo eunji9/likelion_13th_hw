@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!-- following & followers-->
+User : {{user}} <br>
+UserProfile : {{user.profile}} <br>
+<p>🤩 팔로워 :{{ user.profile.followers.count}}명 | 팔로잉 :{{ user.profile.followings.count}}명 🤩</p>
+{% if request.user != user %}
+    {% if request.user.profile in user.profile.followers.all %}
+        <a href="{% url 'users:follow' user.id %}">
+            <button type="button" class="btn btn-outline-info">언팔로우</button>
+        </a>
+    {% else %}
+        <a href="{% url 'users:follow' user.id %}">
+            <button type="button" class="btn btn-info">팔로우</button>
+        </a>
+    {% endif %}
+{% endif %}
+
 <!-- 글 작성하기 -->
 <h2 class="contents">🩵글 작성🩵</h2>
 <div>
