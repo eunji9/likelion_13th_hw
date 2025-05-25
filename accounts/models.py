@@ -6,8 +6,8 @@ from django.db.models.signals import post_save
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    age = models.IntegerField()
-    mbti = models.TextField(max_length=5)
+    age = models.IntegerField(null=True, blank=True)
+    mbti = models.TextField(max_length=5, null=True, blank=True)
     followings = models.ManyToManyField("self", related_name="followers", symmetrical=False)
 
 @receiver(post_save, sender=User)
